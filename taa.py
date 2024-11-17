@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+from time import sleep
 menu = f'''\n{'-' *5}BANCO SAQUE MIL{'-' *5}
 
 [D] Depósito
@@ -63,17 +63,17 @@ while True:
         break
 
     else:
-=======
-from time import sleep
+        
 
-menu = f'''\n{'-' *5}BANCO SAQUE MIL{'-' *5}
 
-[D] Depósito
-[S] Sacar
-[E] Extrato
-[Q] Sair
+        menu = f'''\n{'-' *5}BANCO SAQUE MIL{'-' *5}
 
-=>'''
+        [D] Depósito
+        [S] Sacar
+        [E] Extrato
+        [Q] Sair
+
+        =>'''
 saldo = 0
 limite = 500
 extrato = {}
@@ -142,5 +142,5 @@ while True:
         break
 
     else:
->>>>>>> 19c69a3 (Adicionados alguns novos textos e import do sleep para deixar o funcionamento do programa mais parecido com uma transação real)
+
         print('Verifique a opção digitada e tente novamente.')
