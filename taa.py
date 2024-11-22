@@ -21,10 +21,11 @@ extrato = {}
 numero_saque = 0
 limite_saque = 3
 numero_transacoes = 0
-limite_transacoes = 5
+limite_transacoes = 10
 transacoes = {}
 numero_deposito = 0
 data_transacao = ''
+deposito = 0
 
 
 while True:
@@ -69,6 +70,8 @@ while True:
             print('O valor máximo de saque por transação é do R$500')
         elif saque <= 0:
             print('Não é possível sacar um valor menor ou igual a 0')
+        elif saldo <= 0 or saque > saldo:
+            print(f'Saldo insuficiente!\nSaldo atual R$ {saldo:.2f}')
         elif saque > 0 and saque <= 500 and numero_saque <=3 or transacoes <= limite_transacoes:
             if data_transacao == '':
                 data_transacao = data.strftime('%d/%m/%Y')
@@ -89,7 +92,7 @@ while True:
             transacoes.update({chave:valor})
 
             chave = f'Saque: {numero_saque}'
-            valor = f"R$ {deposito:.2f} - Dia e Hora: {data_atual}\nSaldo após a transação: R${saldo:.2f}\n"
+            valor = f"R$ {saque:.2f} - Dia e Hora: {data_atual}\nSaldo após a transação: R${saldo:.2f}\n"
             extrato.update({chave:valor})
         else:
             print('Verifique os valores digitados')
@@ -125,6 +128,7 @@ numero_transacoes = 0
 limite_transacoes = 5
 transacoes = {}
 numero_deposito = 0
+deposito = 0
 
 
 while True:
@@ -132,7 +136,7 @@ while True:
     opcao = str(input(menu))
 
     if opcao.upper() == 'D':
-        deposito= int(input('Digite o valor que deseja depositar: '))
+        deposito = int(input('Digite o valor que deseja depositar: '))
         if deposito > 0 and numero_transacoes <= limite_transacoes:
             print(f'Realizando deposito de {deposito:.2f}')
             sleep(3)
@@ -177,6 +181,8 @@ while True:
             print('O valor máximo de saque por transação é do R$500')
         elif saque <= 0:
             print('Não é possível sacar um valor menor ou igual a 0')
+        elif saldo <= 0 or saque > saldo:
+            print(f'Saldo insuficiente!\nSaldo atual R$ {saldo:.2f}')
         elif saque > 0 and saque <= 500 and numero_saque <=3 and numero_transacoes <= limite_transacoes:
             if data_transacao == '':
                 data_transacao = data.strftime('%d/%m/%Y')
@@ -199,7 +205,7 @@ while True:
             transacoes.update({chave:valor})
 
             chave = f'Saque: {numero_saque}'
-            valor = f"R$ {deposito:.2f} - Dia e Hora: {data_atual}\nSaldo após a transação: R${saldo:.2f}\n"
+            valor = f"R$ {saque:.2f} - Dia e Hora: {data_atual}\nSaldo após a transação: R${saldo:.2f}\n"
             extrato.update({chave:valor})
             sleep(1)
 
